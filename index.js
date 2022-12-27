@@ -32,6 +32,10 @@ io.on("connection", async (socket) => {
   });
 });
 
+app.get("/", (req, res) => {
+  res.send("200")
+})
+
 server.listen(6969, () => {
   console.log(`app listening to port ${6969}`);
 });
