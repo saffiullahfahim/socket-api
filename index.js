@@ -3,9 +3,9 @@ const https = require("https");
 const fs = require("fs");
 
 const options = {
-  key: fs.readFileSync("./ssl/api_saffiullahfahim_me.key"),
-  cert: fs.readFileSync("./ssl/api_saffiullahfahim_me.crt"),
-  ca: fs.readFileSync("./ssl/api_saffiullahfahim_me.ca-bundle"),
+  key: fs.readFileSync("../ssl/api_saffiullahfahim_me.key"),
+  cert: fs.readFileSync("../ssl/api_saffiullahfahim_me.crt"),
+  ca: fs.readFileSync("../ssl/api_saffiullahfahim_me.ca-bundle"),
 };
 
 const server = https.createServer(options, (req, res) => {
