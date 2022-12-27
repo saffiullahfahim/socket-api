@@ -1,4 +1,6 @@
 const https = require("https");
+const express = require("express");
+const cors = require("cors");
 
 const fs = require("fs");
 
@@ -8,10 +10,10 @@ const options = {
   ca: fs.readFileSync("../ssl/api_saffiullahfahim_me.ca-bundle"),
 };
 
-const server = https.createServer(options, (req, res) => {
-  res.writeHead(200);
-  res.end("success");
-});
+const app = express();
+const server = https.createServer(options, app);
+
+app.use(cors());
 
 // socket
 const io = require("socket.io")(server, {
