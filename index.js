@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
   res.send("200")
 })
 
-server.listen(6969, () => {
-  console.log(`app listening to port ${6969}`);
+server.listen(6443, () => {
+  console.log(`app listening to port ${6443}`);
 });
 
