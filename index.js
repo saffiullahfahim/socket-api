@@ -24,11 +24,12 @@ const io = require("socket.io")(server, {
 });
 
 io.on("connection", async (socket) => {
-  socket.on("wow", async (data) => {
-    if(socket.handshake.auth.room){
+  if (socket.handshake.auth.room) {
+    socket.join(socket.handshake.auth.room);
+    socket.on("wow", async (data) => {
       io.in(socket.handshake.auth.room).emit("wow", data);
-    }
-  });
+    });
+  }
 });
 
 app.get("/", (req, res) => {
