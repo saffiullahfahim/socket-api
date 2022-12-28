@@ -25,10 +25,9 @@ const io = require("socket.io")(server, {
 
 io.on("connection", async (socket) => {
   socket.on("wow", async (data) => {
-    io.emit("wow", {
-      type: socket.handshake.auth.name,
-      data,
-    });
+    if(socket.handshake.auth.room){
+      io.in(socket.handshake.auth.room).emit("wow", data);
+    }
   });
 });
 
